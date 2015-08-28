@@ -13,6 +13,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ujs', '~> 1.0.4'
 end
 
+gem 'devise'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

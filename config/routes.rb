@@ -4,13 +4,15 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'application#hello'
+  root 'home#index'
 
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions' }
   # Custom Devise routes
   devise_scope :user do
-    get '/login' => 'devise/sessions#new'
-    get '/logout' => 'devise/sessions#destroy'
+    get '/sign_in' => 'users/sessions#new'
+    get '/sign_in/forgot' => 'users/passwords#new'
+    get '/sign_out' => 'users/sessions#destroy'
+    get '/sign_up' => 'users/registrations#new'
   end
 
   # Example of regular route:

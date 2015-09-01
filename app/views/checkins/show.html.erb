@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Camera ID:</strong>
+  <%= @checkin.camera_id %>
+</p>
+
+<p>
+  <strong>Exposure:</strong>
+  <%= @checkin.exposure %>
+</p>
+
+<p>
+  <strong>Location ID:</strong>
+  <%= @checkin.location_id %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @checkin.summary %>
+</p>
+
+<p>
+  <strong>Story:</strong>
+  <%= @checkin.story %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @checkin.comments %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @checkin.created_at %>
+</p>
+
+<p>
+  <strong>User Id:</strong>
+  <%= @checkin.user_id %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @checkin.updated_at %>
+</p>
+
+<p>
+  <strong>Updated by:</strong>
+  <%= @checkin.updated_by %>
+</p>
+
+<p>
+  <strong>Updated count:</strong>
+  <%= @checkin.updated_count %>
+</p>
+
+<p>
+  <strong>Is user editable:</strong>
+  <%= @checkin.is_user_editable %>
+</p>
+
+<%= link_to 'Edit', edit_checkin_path(@checkin) %> |
+<%= link_to 'Back', checkins_path %>

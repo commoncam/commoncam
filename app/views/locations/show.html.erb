@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @location.name %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @location.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @location.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @location.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @location.zip %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @location.country %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @location.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @location.lng %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @location.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @location.updated_at %>
+</p>
+
+<p>
+  <strong>Updated by:</strong>
+  <%= @location.updated_by %>
+</p>
+
+<p>
+  <strong>Updated count:</strong>
+  <%= @location.updated_count %>
+</p>
+
+<p>
+  <strong>Is user editable:</strong>
+  <%= @location.is_user_editable %>
+</p>
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>

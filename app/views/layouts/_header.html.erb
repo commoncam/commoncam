@@ -1,6 +1,9 @@
 <header>
   <nav>
     <%= link_to 'Home', root_path %>
+    <%= link_to 'Checkins', checkins_path %>
+    <%= link_to 'Cams', cameras_path %>
+    <%= link_to 'Locations', locations_path %>
     <% if user_signed_in? %>
       <%= link_to 'Sign Out', sign_out_path %>
     <% else %>

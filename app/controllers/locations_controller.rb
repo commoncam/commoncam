@@ -22,6 +22,7 @@ class LocationsController < ApplicationController
   # POST /locations
   def create
     @location = Location.new(location_params)
+    @location.user = current_user
 
     if @location.save
       redirect_to @location, notice: 'Location was successfully created.'
@@ -32,6 +33,7 @@ class LocationsController < ApplicationController
 
   # PATCH/PUT /locations/1
   def update
+    @location.updated_by = current_user.id
     if @location.update(location_params)
       redirect_to @location, notice: 'Location was successfully updated.'
     else

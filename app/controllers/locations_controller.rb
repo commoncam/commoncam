@@ -34,6 +34,7 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1
   def update
     @location.updated_by = current_user.id
+    @location.increment(:updated_count)
     if @location.update(location_params)
       redirect_to @location, notice: 'Location was successfully updated.'
     else

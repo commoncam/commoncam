@@ -34,6 +34,7 @@ class CheckinsController < ApplicationController
   # PATCH/PUT /checkins/1
   def update
     @checkin.updated_by = current_user.id
+    @checkin.increment(:updated_count)
     if @checkin.update(checkin_params)
       redirect_to @checkin, notice: 'Checkin was successfully updated.'
     else

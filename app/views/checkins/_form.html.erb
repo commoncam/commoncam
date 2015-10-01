@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :camera_id %><br>
-    <%= f.number_field :camera_id %>
+    <%= collection_select(:checkin, :camera_id, Camera.all, :id, :camera_number) %>
   </div>
   <div class="field">
     <%= f.label :exposure %><br>

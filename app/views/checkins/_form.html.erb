@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :exposure %><br>
-    <%= f.number_field :exposure %>
+    <%= f.select :exposure, options_for_select(0..27) %>
   </div>
   <div class="field">
     <%= f.label :location_id %><br>

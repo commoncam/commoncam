@@ -23,6 +23,7 @@ class CheckinsController < ApplicationController
   def create
     @checkin = Checkin.new(checkin_params)
     @checkin.user = current_user
+    @checkin.location.user = current_user
 
     if @checkin.save
       redirect_to @checkin, notice: 'Checkin was successfully created.'
@@ -35,6 +36,9 @@ class CheckinsController < ApplicationController
   def update
     @checkin.updated_by = current_user.id
     @checkin.increment(:updated_count)
+    @checkin.location.updated_by = current_user.id
+    @checkin.location.increment(:updated_count)
+
     if @checkin.update(checkin_params)
       redirect_to @checkin, notice: 'Checkin was successfully updated.'
     else
@@ -56,6 +60,12 @@ class CheckinsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def checkin_params
-      params.require(:checkin).permit(:camera_id, :exposure, :location_id, :summary, :story, :comments, :created_at, :user_id, :updated_at, :updated_by, :updated_count, :is_user_editable)
+      params.require(:checkin).permit(
+        :camera_id, :exposure, :summary, :story, :comments, :created_at, :user_id,
+        :updated_at, :updated_by, :updated_count, :is_user_editable,
+        location_attributes: [
+          :id, :user_id, :name, :street, :city, :state, :zip, :country, :lat, :lng, :created_at, :updated_at, :updated_by, :updated_count, :is_user_editable
+        ]
+      )
     end
 end

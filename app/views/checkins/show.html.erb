@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Camera Number:</strong>
+  <%= @checkin.camera.camera_number %>
+</p>
+
+<p>
   <strong>Camera ID:</strong>
   <%= @checkin.camera_id %>
 </p>
@@ -64,6 +69,82 @@
   <strong>Is user editable:</strong>
   <%= @checkin.is_user_editable %>
 </p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @checkin.location.name %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @checkin.location.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @checkin.location.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @checkin.location.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @checkin.location.zip %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @checkin.location.country %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @checkin.location.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @checkin.location.lng %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @checkin.location.created_at %>
+</p>
+
+<p>
+  <strong>Created by ID:</strong>
+  <%= @checkin.location.user.id %>
+</p>
+
+<p>
+  <strong>Created by email:</strong>
+  <%= @checkin.location.user.email %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @checkin.location.updated_at %>
+</p>
+
+<p>
+  <strong>Updated by:</strong>
+  <%= @checkin.location.updated_by %>
+</p>
+
+<p>
+  <strong>Updated count:</strong>
+  <%= @checkin.location.updated_count %>
+</p>
+
+<p>
+  <strong>Is user editable:</strong>
+  <%= @checkin.location.is_user_editable %>
+</p>
+
 
 <%= link_to 'Edit', edit_checkin_path(@checkin) %> |
 <%= link_to 'Back', checkins_path %>

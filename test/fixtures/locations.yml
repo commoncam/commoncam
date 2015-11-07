@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: MyString
   street: MyString
   city: MyString
@@ -10,12 +11,14 @@ one:
   lat: 9.99
   lng: 9.99
   created_at: 2015-09-01 09:45:00
+  user_id: 1
   updated_at: 2015-09-01 09:45:00
   updated_by: 1
   updated_count: 1
   is_user_editable: false
 
 two:
+  id: 2
   name: MyString
   street: MyString
   city: MyString
@@ -25,6 +28,7 @@ two:
   lat: 9.99
   lng: 9.99
   created_at: 2015-09-01 09:45:00
+  user_id: 1
   updated_at: 2015-09-01 09:45:00
   updated_by: 1
   updated_count: 1

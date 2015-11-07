@@ -8,6 +8,7 @@ class CamerasController < ApplicationController
 
   # GET /cameras/1
   def show
+    @camera = Camera.find(params[:id])
   end
 
   # GET /cameras/new

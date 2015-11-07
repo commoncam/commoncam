@@ -15,6 +15,7 @@ development:
 
 test:
   <<: *default
+  username: <%= ENV["username"] %>
   database: <%= ENV["database"] %>
 
 production:

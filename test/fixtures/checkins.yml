@@ -2,8 +2,8 @@
 
 one:
   camera_id: 1
-  exposure: 1
   location_id: 1
+  exposure: 1
   summary: MyString
   story: MyString
   comments: MyString
@@ -15,9 +15,9 @@ one:
   is_user_editable: false
 
 two:
-  camera_id: 1
+  camera_id: 2
+  location_id: 2
   exposure: 1
-  location_id: 1
   summary: MyString
   story: MyString
   comments: MyString

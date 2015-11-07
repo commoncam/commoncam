@@ -3,6 +3,7 @@ require 'test_helper'
 class LocationsControllerTest < ActionController::TestCase
   setup do
     @location = locations(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
@@ -18,7 +19,21 @@ class LocationsControllerTest < ActionController::TestCase
 
   test "should create location" do
     assert_difference('Location.count') do
-      post :create, location: { city: @location.city, country: @location.country, created_at: @location.created_at, is_user_editable: @location.is_user_editable, lat: @location.lat, lng: @location.lng, name: @location.name, state: @location.state, street: @location.street, updated_at: @location.updated_at, updated_by: @location.updated_by, updated_count: @location.updated_count, zip: @location.zip }
+      post :create, location: {
+        city: @location.city,
+        country: @location.country,
+        created_at: @location.created_at,
+        is_user_editable: @location.is_user_editable,
+        lat: @location.lat,
+        lng: @location.lng,
+        name: @location.name,
+        state: @location.state,
+        street: @location.street,
+        updated_at: @location.updated_at,
+        updated_by: @location.updated_by,
+        updated_count: @location.updated_count,
+        zip: @location.zip
+      }
     end
 
     assert_redirected_to location_path(assigns(:location))
@@ -35,7 +50,21 @@ class LocationsControllerTest < ActionController::TestCase
   end
 
   test "should update location" do
-    patch :update, id: @location, location: { city: @location.city, country: @location.country, created_at: @location.created_at, is_user_editable: @location.is_user_editable, lat: @location.lat, lng: @location.lng, name: @location.name, state: @location.state, street: @location.street, updated_at: @location.updated_at, updated_by: @location.updated_by, updated_count: @location.updated_count, zip: @location.zip }
+    patch :update, id: @location, location: {
+      city: @location.city,
+      country: @location.country,
+      created_at: @location.created_at,
+      is_user_editable: @location.is_user_editable,
+      lat: @location.lat,
+      lng: @location.lng,
+      name: @location.name,
+      state: @location.state,
+      street: @location.street,
+      updated_at: @location.updated_at,
+      updated_by: @location.updated_by,
+      updated_count: @location.updated_count,
+      zip: @location.zip
+    }
     assert_redirected_to location_path(assigns(:location))
   end
 

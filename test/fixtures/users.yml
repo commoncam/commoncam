@@ -6,6 +6,8 @@
 #
 one:
   id: 1
+  email: mystring@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 # warning: may need to use an advisory lock if testing multipel users
 # see github.com/plataformatec/devise/issues/2594 and github.com/mceachen/with_advisory_lock

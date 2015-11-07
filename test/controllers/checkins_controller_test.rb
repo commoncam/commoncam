@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class CheckinsControllerTest < ActionController::TestCase
+
   setup do
     @checkin = checkins(:one)
+    @camera = cameras(:one)
+    @location = locations(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
@@ -18,7 +22,37 @@ class CheckinsControllerTest < ActionController::TestCase
 
   test "should create checkin" do
     assert_difference('Checkin.count') do
-      post :create, checkin: { camera_id: @checkin.camera_id, comments: @checkin.comments, created_at: @checkin.created_at, user_id: @checkin.user_id, exposure: @checkin.exposure, is_user_editable: @checkin.is_user_editable, location_id: @checkin.location_id, story: @checkin.story, summary: @checkin.summary, updated_at: @checkin.updated_at, updated_by: @checkin.updated_by, updated_count: @checkin.updated_count }
+      assert_difference('Location.count') do
+        post :create, checkin: {
+          camera_id: @camera.id,
+          comments: @checkin.comments,
+          created_at: @checkin.created_at,
+          user_id: @checkin.user_id,
+          exposure: @checkin.exposure,
+          is_user_editable: @checkin.is_user_editable,
+          story: @checkin.story,
+          summary: @checkin.summary,
+          updated_at: @checkin.updated_at,
+          updated_by: @checkin.updated_by,
+          updated_count: @checkin.updated_count,
+          location_attributes: {
+            user_id: @location.user_id,
+            name: @location.name,
+            street: @location.street,
+            city: @location.city,
+            state: @location.state,
+            zip: @location.zip,
+            country: @location.country,
+            lat: @location.lat,
+            lng: @location.lng,
+            created_at: @location.created_at,
+            updated_at: @location.updated_at,
+            updated_by: @location.updated_by,
+            updated_count: @location.updated_count,
+            is_user_editable: @location.is_user_editable
+          }
+        }
+      end
     end
 
     assert_redirected_to checkin_path(assigns(:checkin))
@@ -35,7 +69,35 @@ class CheckinsControllerTest < ActionController::TestCase
   end
 
   test "should update checkin" do
-    patch :update, id: @checkin, checkin: { camera_id: @checkin.camera_id, comments: @checkin.comments, created_at: @checkin.created_at, user_id: @checkin.user_id, exposure: @checkin.exposure, is_user_editable: @checkin.is_user_editable, location_id: @checkin.location_id, story: @checkin.story, summary: @checkin.summary, updated_at: @checkin.updated_at, updated_by: @checkin.updated_by, updated_count: @checkin.updated_count }
+      patch :update, id: @checkin, checkin: {
+        camera_id: @camera.id,
+        comments: @checkin.comments,
+        created_at: @checkin.created_at,
+        user_id: @checkin.user_id,
+        exposure: @checkin.exposure,
+        is_user_editable: @checkin.is_user_editable,
+        story: @checkin.story,
+        summary: @checkin.summary,
+        updated_at: @checkin.updated_at,
+        updated_by: @checkin.updated_by,
+        updated_count: @checkin.updated_count,
+        location_attributes: {
+          user_id: @location.user_id,
+          name: @location.name,
+          street: @location.street,
+          city: @location.city,
+          state: @location.state,
+          zip: @location.zip,
+          country: @location.country,
+          lat: @location.lat,
+          lng: @location.lng,
+          created_at: @location.created_at,
+          updated_at: @location.updated_at,
+          updated_by: @location.updated_by,
+          updated_count: @location.updated_count,
+          is_user_editable: @location.is_user_editable
+        }
+      }
     assert_redirected_to checkin_path(assigns(:checkin))
   end
 

@@ -8,6 +8,10 @@ class CheckinsController < ApplicationController
 
   # GET /checkins/1
   def show
+    @checkin = Checkin.find(params[:id])
+    @camera = Camera.find(@checkin.camera_id)
+    @location = Location.find(@checkin.location_id)
+    @location.user = @location.build_user
   end
 
   # GET /checkins/new
@@ -34,10 +38,13 @@ class CheckinsController < ApplicationController
 
   # PATCH/PUT /checkins/1
   def update
+    @checkin = Checkin.find(params[:id])
     @checkin.updated_by = current_user.id
     @checkin.increment(:updated_count)
-    @checkin.location.updated_by = current_user.id
-    @checkin.location.increment(:updated_count)
+    @location = Location.find(@checkin.location_id)
+    @location.user = current_user
+    @location.updated_by = current_user.id
+    @location.increment(:updated_count)
 
     if @checkin.update(checkin_params)
       redirect_to @checkin, notice: 'Checkin was successfully updated.'
@@ -68,4 +75,5 @@ class CheckinsController < ApplicationController
         ]
       )
     end
+
 end

@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.2.4"
 
 # Use Figaro to store environment variables.
 gem 'figaro'
